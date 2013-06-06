@@ -16,18 +16,15 @@ class PointsCalculatorService {
 		DateMarkerManager dateManager = new DateMarkerManager()
 		PointBase pointBase = PointBase.get(AppConstants.POINT_BASE_ID)
 		
-		Player.each {Player currentPlayer->
+		Player.all.each {Player currentPlayer->
 			
 			int playersPoints = 0			
 			
-			currentPlayer.games.each {Game currentGame ->
-				
-				if(currentGame.winner == currentPlayer){
-					
-					def multiplier = pointsMultiplierEvaluatorService.getDateMultiplier(currentGame.date, dateManager)
-					int gamePoints = pointBase.basePoints - currentGame.loserRank
-					playersPoints += gamePoints * multiplier
-				}
+			Game.findAllByWinner(currentPlayer).each {Game currentGame ->
+								
+				def multiplier = pointsMultiplierEvaluatorService.getDateMultiplier(currentGame.date, dateManager)
+				int gamePoints = pointBase.basePoints - currentGame.loserRank
+				playersPoints += gamePoints * multiplier
 			}
 			
 			currentPlayer.setCurrentPoints(playersPoints)
@@ -37,7 +34,7 @@ class PointsCalculatorService {
 	
 	def calculateAllPlayersRank() {
 		
-		def rankedPlayers = Player.all.sort{a, b-> a.currentPoints <=> b.currentPoints}as Comparator
+		def rankedPlayers = Player.all.sort{it.currentPoints}.reverse()
 		
 		rankedPlayers.eachWithIndex { Player currentPlayer, i->
 			

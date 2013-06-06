@@ -19,7 +19,7 @@ import grails.test.mixin.support.*
 @TestMixin(GrailsUnitTestMixin)
 class PointsMultiplierEvaluatorServiceTests {
 
-    void testSomething() {
+    void testGetDateMultiplier() {
         
 		mockDomain(DateMultiplier, [
 			new DateMultiplier(numOfDays:-21, multiplier:1.0),
@@ -28,50 +28,20 @@ class PointsMultiplierEvaluatorServiceTests {
 			new DateMultiplier(numOfDays:-84, multiplier:0.2)			
 		])
 		
-		requiredTime.add(Calendar.DATE, -14)
-		Date lessthreeWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -7)
-		Date threeWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -14)
-		Date lesssixWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -7)
-		Date sixWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -14)
-		Date lessnineWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -7)
-		Date nineWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -14)
-		Date lesstwelveWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -7)
-		Date twelveWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -1)
-		Date oneMoreThanTwelveWeeksAgo = requiredTime.getTime()
-		requiredTime.add(Calendar.DATE, -10)
-		Date alotMoreThanTwelveWeeksAgo = requiredTime.getTime()
-		
 		DateMarkerManager markers = new DateMarkerManager()
 		
-		def multipliers = DateMultiplier.all.sort({ a, b ->
-			a.numOfDays <=> b.numOfDays
-			} as Comparator).reverse()
+		def multipliers = DateMultiplier.all.sort({ a, b -> a.numOfDays <=> b.numOfDays} as Comparator).reverse()
 		
 		multipliers.each{DateMultiplier dateMultiplier->
 			
-			
-			
-			
-		}
-		
-		assert service.getDateMultiplier(lessthreeWeeksAgo, markers) == 1.0
-		assert service.getDateMultiplier(threeWeeksAgo, markers) == 1.0
-		assert service.getDateMultiplier(lesssixWeeksAgo, markers) == 0.5
-		assert service.getDateMultiplier(sixWeeksAgo, markers) == 0.5
-		assert service.getDateMultiplier(lessnineWeeksAgo, markers) == 0.3
-		assert service.getDateMultiplier(nineWeeksAgo, markers) == 0.3
-		assert service.getDateMultiplier(lesstwelveWeeksAgo, markers) == 0.2
-		assert service.getDateMultiplier(twelveWeeksAgo, markers) == 0.2
-		assert service.getDateMultiplier(oneMoreThanTwelveWeeksAgo, markers) == 0
-		assert service.getDateMultiplier(alotMoreThanTwelveWeeksAgo, markers) == 0
+			def initialDate = getTime()
+			initialDate.add(Calendar.DATE, dateMultiplier.numOfDays +7)
+			Date testGameDate = initialDate.getTime()
+			assert service.getDateMultiplier(testGameDate, markers) == dateMultiplier.multiplier
+			initialDate.add(Calendar.DATE, -7)
+			testGameDate = initialDate.getTime()
+			assert service.getDateMultiplier(testGameDate, markers) == dateMultiplier.multiplier
+		}		
     }
 	
 	private def getTime(){
