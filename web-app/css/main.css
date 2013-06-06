@@ -5,19 +5,15 @@ input, select, textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	line-height: 1.1;
+	line-height: 1.1;	
 }
 
 /* BASE LAYOUT */
 
 html {
-	background-color: #ddd;
-	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
-	background-image: linear-gradient(top, #aaa, #ddd);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
-	background-repeat: no-repeat;
+	background-color: white;
 	height: 100%;
+	min-width:1000px;
 	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -25,7 +21,7 @@ html {
 }
 
 html.no-cssgradients {
-	background-color: #aaa;
+	background-color: white;
 }
 
 .ie6 html {
@@ -36,22 +32,6 @@ html * {
 	margin: 0;
 }
 
-body {
-	background: #ffffff;
-	color: #333333;
-	margin: 0 auto;
-	max-width: 960px;
-	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
-}
-
-#grailsLogo {
-	background-color: #abbf78;
-}
-
-/* replace with .no-boxshadow body if you have modernizr available */
 .ie6 body,
 .ie7 body,
 .ie8 body {
@@ -64,8 +44,71 @@ body {
 	height: 100%;
 }
 
+/* NMI LAYOUT */
+
+/*Main page*/
+
+body {
+	background: white;
+	color: #333333;
+	margin: 0 auto;
+	min-height: 100%;
+	max-width: auto;  	
+}
+
+#Header {
+	background-color: #326ca6;
+	
+	height: 40px;
+}
+
+#Header-logo {
+	margin-left:auto;
+	margin-right:auto;
+	width:1020px;	
+	text-align:left;
+	padding-top:20px;
+}
+
+#footer {
+	background-color:white;
+	color:#666666;
+	text-align:center;
+	height: 20px;
+	-webkit-box-shadow: 0 -6px 6px -6px #888;
+	   -moz-box-shadow: 0 -6px 6px -6px #888;
+	        box-shadow: 0 -6px 6px -6px #888;	dataSource.url="jdbc:mysql://server/dbname"
+dataSource.password="password"
+	font-size: 0.8em;
+	text-align: center;
+	padding-top: 5px;		
+   bottom:0;
+   width:100%;
+   position:absolute;
+}
+
+#ContentDiv {
+	background-color: white;	
+	width:auto;	
+	margin-left: auto;
+	margin-right: auto;
+	min-height: auto;	
+}
+
+#page-content {
+	background-color: white;		
+	width:auto;	
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 600px;
+}
+
+#customerCreateButton{
+	display:none;
+}
+
 a:link, a:visited, a:hover {
-	color: #48802c;
+	color: #707FA1;
 }
 
 a:hover, a:active {
@@ -73,7 +116,7 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #48802c;
+	color: #707FA1;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -88,6 +131,16 @@ img {
 }
 
 /* GENERAL */
+
+.excalibrLogo{
+	/*float:left;*/
+	margin-left:auto;
+	margin-right:auto;
+	width:auto;	
+	text-align:left;
+	padding-top:20px;
+	float:left;
+}
 
 #grailsLogo a {
 	display: inline-block;
@@ -108,59 +161,61 @@ img {
 }
 
 .footer {
-	background: #abbf78;
-	color: #000;
+	background: white;
+	position:absolute;
+	bottom: 0em;
+	color: #666666;
 	clear: both;
 	font-size: 0.8em;
 	margin-top: 1.5em;
-	padding: 1em;
 	min-height: 1em;
+	min-width: 960px;
+	text-align: center;	
 }
 
 .footer a {
-	color: #255b17;
+	color: #666666;
+}
+
+.footer h3 {
+	color:#666666;
+	font-size: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	margin: 1em auto 1em auto;	
 }
 
 .spinner {
-	background: url(../images/spinner.gif) 50% 50% no-repeat transparent;
-	height: 16px;
-	width: 16px;
-    padding: 0.5em;
-    position: absolute;
-    right: 0;
-	top: 0;
-	text-indent: -9999px;
+	position: fixed;	
+	margin-left: -50px; /* half width of the spinner gif */
+	margin-top: -50px; /* half height of the spinner gif */
+	text-align:center;	
+	overflow: auto;
+	width: 200px; /* width of the spinner gif */
+	height: 202px; /*hight of the spinner gif +2px to fix IE8 issue */
 }
 
 /* NAVIGATION MENU */
 
 .nav {
-	background-color: #efefef;
-	padding: 0.5em 0.75em;
-	   -moz-box-shadow: 0 0 3px 1px #aaaaaa;
-	-webkit-box-shadow: 0 0 3px 1px #aaaaaa;
-	        box-shadow: 0 0 3px 1px #aaaaaa;
-	zoom: 1;
+		
 }
 
 .nav ul {
-	overflow: hidden;
-	padding-left: 0;
-	zoom: 1;
+	padding-top:5px;		
 }
 
 .nav li {
-	display: block;
+	color: #C8C9CC;
+	display: block;	
 	float: left;
 	list-style-type: none;
-	margin-right: 0.5em;
-	padding: 0;
+	margin-right: 0.5em;	
 }
 
 .nav a {
-	color: #666666;
+	color: #C8C9CC;
 	display: block;
-	padding: 0.25em 0.7em;
 	text-decoration: none;
 	   -moz-border-radius: 0.3em;
 	-webkit-border-radius: 0.3em;
@@ -168,12 +223,11 @@ img {
 }
 
 .nav a:active, .nav a:visited {
-	color: #666666;
+	color: #C8C9CC;
 }
 
 .nav a:focus, .nav a:hover {
-	background-color: #999999;
-	color: #ffffff;
+	color: white;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
@@ -184,14 +238,29 @@ img {
 	text-decoration: underline;
 }
 
-.nav a.home, .nav a.list, .nav a.create {
-	background-position: 0.7em center;
+.nav a.home, .nav a.list, .nav a.create, .nav a.projects-nav, .nav a.permissions-nav, .nav a.help-nav {
+	background-position: -0em center;
 	background-repeat: no-repeat;
 	text-indent: 25px;
+	margin-top:5px;
+	margin-left: 10px;
+}
+	
+.nav a.projects-nav{
+	background-image: url(../images/skin/projects.png);
+}
+
+.nav a.permissions-nav{
+	background-image: url(../images/skin/permissions.png);
+}
+
+.nav a.help-nav {
+	background-image: url(../images/skin/help.png);
 }
 
 .nav a.home {
 	background-image: url(../images/skin/house.png);
+	margin-left:80px;
 }
 
 .nav a.list {
@@ -202,6 +271,11 @@ img {
 	background-image: url(../images/skin/database_add.png);
 }
 
+.nav .nmi-logo{
+	width:200px;	
+	padding-left:10px;
+	margin:0 0 0 0;
+}
 /* CREATE/EDIT FORMS AND SHOW PAGES */
 
 fieldset,
@@ -227,7 +301,7 @@ fieldset,
 .fieldcontain .property-label {
 	color: #666666;
 	text-align: right;
-	width: 25%;
+	width: 50%;
 }
 
 .fieldcontain .property-label {
@@ -236,7 +310,13 @@ fieldset,
 
 .fieldcontain .property-value {
 	display: block;
+	width:50%;
 	margin-left: 27%;
+	text-align: left;
+}
+
+.customerSelection{
+	width: 400px;
 }
 
 label {
@@ -252,6 +332,11 @@ input, select, textarea {
 	padding: 0.2em 0.4em;
 }
 
+textarea {
+	width:70%;
+	height:300px;
+}
+
 select {
 	padding: 0.2em 0.2em 0.2em 0;
 }
@@ -261,7 +346,7 @@ select[multiple] {
 }
 
 textarea {
-	width: 250px;
+	width: 100%;
 	height: 150px;
 	overflow: auto; /* IE always renders vertical scrollbar without this */
 	vertical-align: top;
@@ -398,11 +483,50 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 
 /* TABLES */
 
+.fieldTable {	
+	
+	width: 95%;
+	margin: 3em 1em 3em 1.5em;
+	border-top: none;
+}
+
+.fieldTable:tr {
+	border: none;
+}
+
+.labelColumn {	
+	color: #666666;
+	line-height: 1.5em;
+	text-align: right;
+	width:40%;
+	vertical-align: top;
+	
+}
+
+.valueColumn {
+	line-height: 1.5em;
+	text-align: left;
+	width:50%;
+	vertical-align: top;	
+}
+
+.fieldTable li {
+	list-style: none;
+	margin: 0 0 0 0;
+	padding:0 0 0 0;
+}
+
+.fieldTable ol {
+	list-style: none;
+	margin: 0 0 0 0;
+	padding:0 0 0 0;
+}
+	
 table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
-	width: 100%;
-	margin-bottom: 1em;
+	width: 95%;
+	margin: 1em 1em 1em 1.5em;	
 }
 
 tr {
@@ -468,15 +592,11 @@ th.desc a {
 }
 
 .odd {
-	background: #f7f7f7;
+	background: #F2F5FA;
 }
 
 .even {
-	background: #ffffff;
-}
-
-th:hover, tr:hover {
-	background: #E1F2B6;
+	background: white;
 }
 
 /* PAGINATION */
@@ -549,7 +669,7 @@ th:hover, tr:hover {
 	        border-radius: 0.3em;
 }
 
-.buttons input:hover, .buttons input:focus,
+.buttons input:hover, .buttons input:focus,fieldContainer
 .buttons a:hover, .buttons a:focus {
 	background-color: #999999;
 	color: #ffffff;
@@ -593,4 +713,248 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+
+.repositorySelect {
+	
+	width: 100%;
+	text-align: left;
+	padding: 10px 10px 10px 25px;	
+}
+
+.groupPermissionDiv{
+	float:left;
+	width:47%;
+	text-align: center;	
+	margin-right: 1px;		
+}
+
+.userPermissionDiv{
+	float:left;
+	width:47%;
+	text-align: center;		
+	margin-left: 1px;
+}
+
+p {
+	margin:10px 10px 20px 25px;
+}
+
+.fieldContainer {
+	width: 100%;
+	text-align: center;	
+}
+
+/*NMI SPECIFIC*/
+
+.excalibrSideNavPanel{
+  min-width:200px; 
+  height:610px;
+  float: left;
+  display: inline;
+  margin: 0;
+  margin-right: 10px;  
+  min-height:100%;  
+  padding-left:10px;
+}
+
+.excalibrSideNavPanel ul {
+	overflow: hidden;
+	padding-left: 0;
+	padding-top:10px;
+	zoom: 1;
+	border-top: 1px solid #DFDFDF;
+	width:200px;
+}
+
+.excalibrSideNavPanel h2 {
+	color: #707FA1;
+	font-weight: normal;
+	font-size: 16px;
+	margin: 0.8em 0 0.3em 0.8em;	
+}
+
+.excalibrSideNavPanel li {
+	color:#707FA1;
+	float: left;
+	list-style-type: none;
+	display: block;
+	padding: 0.25em 0.7em;
+	text-decoration: none;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
+	margin-right:100px;
+	font-size: 14px;
+	width:100%;
+}
+
+.excalibrSideNavPanel a:focus, .excalibrSideNavPanel a:hover {
+	color: #707FA1;
+	outline: none;	
+}
+
+.excalibrSideNavPanel a.home, .excalibrSideNavPanel a.list, .excalibrSideNavPanel a.create {
+	background-position: 0.7em center;
+	background-repeat: no-repeat;
+	text-indent: 25px;
+}
+
+.excalibrSideNavPanel a.home {
+	background-image: url(../images/skin/folder.png);
+}
+
+.excalibrSideNavPanel a.list {
+	background-image: url(../images/skin/database_table.png);
+}
+
+.excalibrSideNavPanel a.create {
+	background-image: url(../images/skin/database_add.png);
+}
+
+.no-borderradius .excalibrSideNavPanel a:focus, .no-borderradius .excalibrSideNavPanel a:hover {
+	background-color: transparent;
+	color: #444444;
+	text-decoration: underline;
+}
+
+.excalibrMainContent {	
+	padding-top:40px;
+	padding-left:auto;
+	padding-right:auto;
+	margin-left:auto;
+	margin-left:auto;
+	min-height:700px;
+	text-align:center;	
+	float:left;
+	border-left:1px solid gray;
+}
+
+.excalibrContent{	
+	margin-left:10px;	
+	max-width:1150px;
+	padding:10px 10px 10px 10px;
+	min-height:600px;
+	text-align:left;				
+}
+
+.excalibr-footer {
+	background-color:white;
+	color:#666666;
+	text-align:center;
+	height: 20px;
+	-webkit-box-shadow: 0 -6px 6px -6px #888;
+	   -moz-box-shadow: 0 -6px 6px -6px #888;
+	        box-shadow: 0 -6px 6px -6px #888;	
+	font-size: 0.8em;
+	text-align: center;
+	float:right;
+	padding-top: 5px;		
+   bottom:0;
+   width:100%;   
+}
+
+/* ACTION BUTTONS */
+
+.excalibr-buttons {		
+	overflow: hidden;	
+	border: none;
+	text-align:center;	
+}
+
+.excalibr-buttons input,.excalibr-buttons submit, .excalibr-buttons a {
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+	background-color: transparent;
+	height:36px;
+	padding-top:7px;
+	border: 0;
+	color: white;
+	cursor: pointer;
+	display: inline-block;	
+	overflow: visible;
+	text-decoration: none;
+	width:100%;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
+}
+
+.excalibr-buttons a {
+	height:30px;
+	padding-top:12px;	
+}
+
+.ie6 .excalibr-buttons input.delete, .ie6 .excalibr-buttons input.edit, .ie6 .excalibr-buttons input.save,
+.ie7 .excalibr-buttons input.delete, .ie7 .excalibr-buttons input.edit, .ie7 .excalibr-buttons input.save {
+	padding-left: 36px;
+}
+
+.excalibr-buttons .actionButton{
+	width:125px;
+	background-repeat: no-repeat;
+	background-color: #009de0;
+	border: 1px solid #326ca6;
+	
+}
+
+.excalibr-buttons .editPermissions{
+	width:220px;
+	background-repeat: no-repeat;
+	background-color: #009de0;
+	border: 1px solid #326ca6;
+	background-image: url(../images/arrow.png);
+	background-position: 200px;
+	
+}
+
+.excalibr-buttons .actionButton:hover, .excalibr-buttons .actionButton:focus, .excalibr-buttons .editPermissions:hover, .excalibr-buttons .editPermissions:focus {	
+	color: #E0E0E0 ;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+	   -moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.loginDetails{		
+	float:right;
+	color: #C8C9CC;
+	padding-right:10px;
+	text-align:left;
+}
+
+.loginDetails p {		
+	font-size: 12px;
+	float:left;
+	margin: 0 0 0 0;
+	padding:9px 5px 0px 5px;
+}
+
+.loginDetails h3 {		
+	font-size: 14px;
+	float:left;
+	padding:9px 5px 0px 5px;
+	margin: 0 0 0 0;
+}
+
+.loginDetails a {
+	padding:7px 5px 0px 5px;
+	margin: 0 0 0 0;
+	color: #C8C9CC;
+	display: block;
+	float:left;
+	text-decoration: none;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
+}
+
+.loginDetails a:active, .loginDetails a:visited {
+	color: #C8C9CC;
+}
+
+.loginDetails a:focus, .loginDetails a:hover {
+	color: white;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }

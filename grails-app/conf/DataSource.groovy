@@ -17,7 +17,7 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             username = "leftyAdmin"
 			password = "leftyAdmin"
-            url = "jdbc:postgresql://localhost:5432/leftyLeague"
+            url = "jdbc:postgresql://localhost:5432/LeftyLeague"
         }
     }
     test {
@@ -29,7 +29,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/leftyLeague"
+            url = "jdbc:postgresql://localhost:5432/LeftyLeague"
             pooled = true
             properties {
                maxActive = -1

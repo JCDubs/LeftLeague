@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Jason-Laptop" id="0" name="PointsMultiplierEvaluatorServiceTests" package="com.uk.leftyleague.service" tests="1" time="1.184" timestamp="2013-05-23T21:58:10">
+  <testsuite errors="0" failures="0" hostname="jasonsmacmini.home" id="0" name="PointsCalculatorServiceTests" package="com.uk.leftyleague.service" tests="2" time="2.935" timestamp="2013-06-05T22:18:34">
       <properties />
 
-      <testcase classname="com.uk.leftyleague.service.PointsMultiplierEvaluatorServiceTests" name="testSomething" time="1.163" />
+      <testcase classname="com.uk.leftyleague.service.PointsCalculatorServiceTests" name="testCalculatePlayersPoints" time="2.165" />
 
-      <system-out><![CDATA[--Output from testSomething--
+      <testcase classname="com.uk.leftyleague.service.PointsCalculatorServiceTests" name="testCalculateAllPlayersRank" time="0.744" />
+
+      <system-out><![CDATA[--Output from testCalculatePlayersPoints--
+--Output from testCalculateAllPlayersRank--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from testSomething--
+      <system-err><![CDATA[--Output from testCalculatePlayersPoints--
+--Output from testCalculateAllPlayersRank--
 ]]></system-err>
 
   </testsuite>
