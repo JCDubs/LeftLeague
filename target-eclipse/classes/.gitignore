@@ -32,8 +32,6 @@
 /DefaultCacheConfig$_run_closure1_closure2.class
 /DefaultCacheConfig$_run_closure1_closure3.class
 /DefaultCacheConfig.class
-/DefaultWebXmlConfig$_run_closure1.class
-/DefaultWebXmlConfig.class
 /JQueryConfig$_run_closure1.class
 /JQueryConfig.class
 /JQueryPluginResources$_run_closure1.class
@@ -60,6 +58,11 @@
 /JQueryTagLib$_closure4.class
 /JQueryTagLib$_closure5.class
 /JQueryTagLib.class
+/JqueryUiPluginResources$_run_closure1.class
+/JqueryUiPluginResources$_run_closure1_closure2.class
+/JqueryUiPluginResources$_run_closure1_closure3.class
+/JqueryUiPluginResources$_run_closure1_closure4.class
+/JqueryUiPluginResources.class
 /ResourcesBootStrap$_closure1.class
 /ResourcesBootStrap$_closure2.class
 /ResourcesBootStrap.class
@@ -68,13 +71,8 @@
 /UrlMappings$__clinit__closure1_closure2_closure3.class
 /UrlMappings.class
 /com
-/dbdoc
 /grails
-/hibernate
 /leftyleague
-/messages.properties
 /org
 /resources$_run_closure1.class
 /resources.class
-/spring
-/testClass.class

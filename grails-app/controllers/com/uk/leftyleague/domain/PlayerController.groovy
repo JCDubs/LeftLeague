@@ -1,10 +1,9 @@
 package com.uk.leftyleague.domain
 
+import grails.converters.JSON
 import org.springframework.dao.DataIntegrityViolationException
 
 class PlayerController {
-
-    //static allowedMethods = [addPlayer: "POST", update: "POST", delete: "POST"]
 
     def index() {
         redirect(action: "list", params: params)
@@ -31,6 +30,15 @@ class PlayerController {
         }
 
         try {
+			
+			def playersWinningGames = Game.findAllByWinner(playerInstance)
+			
+			if(!playersWinningGames?.isEmpty()){
+				
+				Game.deleteAll(playersWinningGames)
+			}
+			
+			
             playerInstance.delete(flush: true)
             request.message = "League Player '${playerInstance?.name}' deleted."
             render(template: "/admin/playerForm", model: [leaguePlayerList: Player.list().sort()])
@@ -40,4 +48,25 @@ class PlayerController {
             render(template: "/admin/playerForm", model: [leaguePlayerList: Player.list().sort()])
         }
     }
+	
+	def autocompleteSearch(){
+		
+		def results = Player.withCriteria {
+			ilike 'name', '%' + params.term + '%'						
+		}
+		
+		def playerSelectList = []
+		
+		results.each {  
+			
+			def playerMap = [:]
+			playerMap.put("id", it.name)
+			playerMap.put("label", it.name)
+			playerMap.put("value", it.name)
+			
+			playerSelectList.add(playerMap)
+		}
+		
+		render playerSelectList as JSON
+	}
 }
