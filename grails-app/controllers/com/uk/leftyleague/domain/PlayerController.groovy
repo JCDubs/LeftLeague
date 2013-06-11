@@ -52,7 +52,8 @@ class PlayerController {
 	def autocompleteSearch(){
 		
 		def results = Player.withCriteria {
-			ilike 'name', '%' + params.term + '%'						
+			ilike 'name', '%' + params.term + '%'	
+			ne 'name', params.selectedPlayer					
 		}
 		
 		def playerSelectList = []

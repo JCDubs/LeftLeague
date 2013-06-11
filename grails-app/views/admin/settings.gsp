@@ -4,15 +4,18 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'player.label', default: 'Player')}" />
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+		<g:javascript library="jquery" />
+<g:javascript library="jquery-ui" />
   		<g:javascript>
 $(document).ready(function() {	
         $("#playerOne").autocomplete({
             source: function(request, response){
                 $.ajax({
                     url:"${createLink(controller: 'player', action: 'autocompleteSearch')}",
-                    data: request,
+                    data: {
+                    term : request.term,
+                    selectedPlayer : $("#playerTwoName").val()
+                	},
                     success: function(data){
                         response(data);
                     }
@@ -20,14 +23,25 @@ $(document).ready(function() {
             },
             minLength: 2,
             select: function(event, ui) {               
+                $("#playerOneName").val(ui.item.value);            
+            }
+        });
+        $("#playerTwo").autocomplete({
+            source: function(request, response){
                 $.ajax({
-                	url: "${createLink(controller: 'repository', action: 'ajaxUpdateDirectories')}",
-                	type: "POST",
-                	data: {'payerName':ui.item.value},
-                	success: function(data){
-                		$("#playerOneName").val(ui.item.value);
-                	}
-                });               
+                    url:"${createLink(controller: 'player', action: 'autocompleteSearch')}",
+                    data: {
+                    term : request.term,
+                    selectedPlayer : $("#playerOneName").val()
+                	},
+                    success: function(data){
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2,
+            select: function(event, ui) {               
+                $("#playerTwoName").val(ui.item.value);               
             }
         });
     }(jQuery));
