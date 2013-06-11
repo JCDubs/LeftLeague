@@ -11,8 +11,9 @@
 
 <p>Please specify the number of points used to calculate the players points for a individual game.</p>
 <g:field id="pointsBase" name="pointsBase" min="0" type="number" value="${pointsBase?.basePoints}" required=""/>
+&nbsp;
 <g:remoteLink action="editPointBase" controller="PointBase" update="pointBaseDiv" 
 			params="\'version=\'+${pointsBase?.version}+\'&basePoints=\'+document.getElementById(\'pointsBase\').value">
-				<g:img class="tableButton" title="Delete Date Muliplier." dir="images/skin" file="database_edit.png" />
+				<g:img class="tableButton" title="Edit Point Base Value." dir="images/skin" file="database_edit.png" />
 			</g:remoteLink>
 </div>

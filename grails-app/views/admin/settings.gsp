@@ -6,9 +6,32 @@
 		<g:set var="entityName" value="${message(code: 'player.label', default: 'Player')}" />
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-  		<script>
-
-  		</script>
+  		<g:javascript>
+$(document).ready(function() {	
+        $("#playerOne").autocomplete({
+            source: function(request, response){
+                $.ajax({
+                    url:"${createLink(controller: 'player', action: 'autocompleteSearch')}",
+                    data: request,
+                    success: function(data){
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2,
+            select: function(event, ui) {               
+                $.ajax({
+                	url: "${createLink(controller: 'repository', action: 'ajaxUpdateDirectories')}",
+                	type: "POST",
+                	data: {'payerName':ui.item.value},
+                	success: function(data){
+                		$("#playerOneName").val(ui.item.value);
+                	}
+                });               
+            }
+        });
+    }(jQuery));
+</g:javascript>
 		<title>League Admin</title>
 	</head>
 	<body>
@@ -28,7 +51,8 @@
 			<g:form method="post" >
 				<fieldset class="form">
 				<div class="rowContainer">
-				<div id="newGameDiv">				
+				<div id="newGameDiv">	
+				<g:render template="addGameForm"/>			
 				</div>
 				<div id="pointBaseDiv">
 				<g:render template="pointsBaseForm"/>
@@ -43,9 +67,7 @@
 				</div>
 				</div>
 				</fieldset>
-				<fieldset class="buttons">
-				<g:submitButton name="saveAdminSettings" class="actionButton" value="Save Settings" />
-				</fieldset>
+				
 			</g:form>
 		</div>
 	</body>

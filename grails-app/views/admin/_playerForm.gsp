@@ -26,8 +26,9 @@
 <table>
 	<thead>
 		<tr>
-			<g:sortableColumn property="name" title="${message(code: 'player.name.label', default: 'Name')}" />		
-			<g:sortableColumn property="rank" title="${message(code: 'player.currentRank.label', default: 'Rank')}" />
+			<g:sortableColumn property="name" title="Name" />		
+			<g:sortableColumn property="rank" title="Rank" />
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -39,7 +40,7 @@
 				<td>
 					${playerInstance.currentRank }
 				</td>
-				<td><g:remoteLink action="deletePlayer" controller="player" update="playersDiv" params="\'id=\'+${playerInstance.id }">
+				<td><g:remoteLink action="deletePlayer" controller="player" update="playersDiv" before="if(!confirm('Are you sure you want to delete this League Player?')) return false" params="\'id=\'+${playerInstance.id }">
 
 					<g:img class="tableButton add" title="Delete League Player."
 							dir="images" file="delete.png"/></g:remoteLink></td>
