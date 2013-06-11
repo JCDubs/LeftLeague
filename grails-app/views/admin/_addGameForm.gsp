@@ -33,8 +33,9 @@
 	<g:field id="playerTwoGameWon" name="playerTwoGameWon" type="number" value="0" required=""/></td>
 	</tr>
 	<tr>
-		<td colspan="3" class="centeredColumn"><g:remoteLink action="addGame" controller="Game" update="newGameDiv"
-				params="\'gameDate=\'+document.getElementById(\'gameDate\').value+\'&winnerName=\'+document.getElementById(\'winnersName\').value+\'&losersName=\'+document.getElementById(\'losersName\').value">
+		<td colspan="3" class="centeredColumn">
+		<g:remoteLink action="addGame" controller="Game" update="newGameDiv"
+params="\'gameDate=\'+document.getElementById(\'gameDate\').value+\'&playerOne=\'+document.getElementById(\'playerOneName\').value+\'&playerTwoName=\'+document.getElementById(\'playerTwoName\').value+\'&playerOneWon=\'+document.getElementById(\'playerOneGameWon\').value+\'&playerTwoWon=\'+document.getElementById(\'playerTwoGameWon\').value">
 
 				<g:img class="tableButton add" title="Add a new League Game." dir="images" file="add.png" />
 			</g:remoteLink></td>
