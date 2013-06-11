@@ -6,12 +6,12 @@ import com.uk.leftleague.utils.AppConstants;
 import com.uk.leftyleague.domain.DateMultiplier;
 import com.uk.leftyleague.domain.PointBase;
 
-class SettingsController {
+class AdminController {
 
     def settings() { 
 		
 		PointBase pointBase = PointBase.get(AppConstants.POINT_BASE_ID)		
-		[basePoints:pointBase, dateMultipliers:DateMultiplier.list().sort{a, b-> a.numOfDays <=> b.numOfDays}as Comparator]
+		[pointsBaseValue:pointBase, dateMultiplierList:DateMultiplier.list().sort()]
 	}
 	
 	def editSettings(){

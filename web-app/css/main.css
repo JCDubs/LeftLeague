@@ -57,9 +57,10 @@ body {
 }
 
 #Header {
-	background-color: #326ca6;
-	
-	height: 40px;
+	background-color: #326ca6;	
+	padding-top:1em;
+	padding-bottom:1em;
+	height: 50px;
 }
 
 #Header-logo {
@@ -85,6 +86,12 @@ dataSource.password="password"
    bottom:0;
    width:100%;
    position:absolute;
+}
+
+#mainHeader{
+	margin:0 0 0 3em;
+	color:white;
+	font-size: 32px;
 }
 
 #ContentDiv {
@@ -525,7 +532,7 @@ input:invalid:focus, select:invalid:focus, textarea:invalid:focus {
 table {
 	border-top: 1px solid #DFDFDF;
 	border-collapse: collapse;
-	width: 95%;
+	width: auto;
 	margin: 1em 1em 1em 1.5em;	
 }
 
@@ -597,6 +604,10 @@ th.desc a {
 
 .even {
 	background: white;
+}
+
+.numColumn{
+	width:20px;
 }
 
 /* PAGINATION */
@@ -917,9 +928,10 @@ p {
 }
 
 .loginDetails{		
+	width:200px;
 	float:right;
 	color: #C8C9CC;
-	padding-right:10px;
+	margin-right:10px;
 	text-align:left;
 }
 
@@ -927,18 +939,18 @@ p {
 	font-size: 12px;
 	float:left;
 	margin: 0 0 0 0;
-	padding:9px 5px 0px 5px;
+	padding:0px 5px 0px 5px;
 }
 
 .loginDetails h3 {		
 	font-size: 14px;
 	float:left;
-	padding:9px 5px 0px 5px;
+	padding:0px 5px 0px 5px;
 	margin: 0 0 0 0;
 }
 
 .loginDetails a {
-	padding:7px 5px 0px 5px;
+	padding:0px 5px 0px 5px;
 	margin: 0 0 0 0;
 	color: #C8C9CC;
 	display: block;
@@ -957,4 +969,76 @@ p {
 	color: white;
 	outline: none;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+
+#leagueTableHeader{
+	width:100%;
+	text-align: center;
+	padding-left:auto;
+	padding-right:auto;
+}
+
+#leagueTableDiv{
+	width:100%;
+	text-align:center;
+	padding-left: auto;
+	padding-right: auto;
+}
+
+#leagueTable{
+	margin-left: auto;
+	margin-right:auto;
+}
+
+#settingsDiv{
+	
+	margin: 0 auto;
+	text-align: center;	
+}
+
+.rowContainer{
+	margin: 0 auto;
+	overflow: hidden;
+	
+	}
+
+#newGameDiv{
+	padding: 10px 0px 10px 0px;
+	margin:10px 10px 10px 10px;
+	float:left;
+	width:40%;	
+	-moz-box-shadow:0px 0px 4px 1px #777777;
+-webkit-box-shadow:0px 0px 4px 1px #777777;
+box-shadow:0px 0px 4px 1px #777777;
+}
+
+#pointBaseDiv{
+	padding: 10px 0px 10px 0px;
+	margin:10px 10px 10px 10px;
+	float:left;
+	width:40%;	
+	-moz-box-shadow:0px 0px 4px 1px #777777;
+-webkit-box-shadow:0px 0px 4px 1px #777777;
+box-shadow:0px 0px 4px 1px #777777;
+}
+
+#dateMultiplierDiv{
+	padding: 10px 0px 10px 0px;
+	margin:10px 10px 10px 10px;
+	float:left;
+	width:40%;	
+	-moz-box-shadow:0px 0px 4px 1px #777777;
+-webkit-box-shadow:0px 0px 4px 1px #777777;
+box-shadow:0px 0px 4px 1px #777777;
+}
+
+#playersDiv{
+	padding: 10px 0px 10px 0px;
+	width:40%;
+	float:left;		
+margin:10px 10px 10px 10px;
+-moz-box-shadow:0px 0px 4px 1px #777777;
+-webkit-box-shadow:0px 0px 4px 1px #777777;
+box-shadow:0px 0px 4px 1px #777777;
 }
