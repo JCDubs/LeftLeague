@@ -20,15 +20,16 @@
 <r:layoutResources />
 </head>
 <body>
-	<div id="Header" role="banner">
-		<h1>Lefty Squash League</h1>
+	<div id="Header" role="banner">	
+		<h1 id = "mainHeader">Lefty Squash League</h1>		
 		<div class="loginDetails">
 			<sec:ifLoggedIn>
 				<p>You are logged in as</p> <h3><sec:loggedInUserInfo field="displayname" /></h3>
+				
 					<g:link controller="Logout">[Logout]</g:link>
 				
 			</sec:ifLoggedIn>
-		</div>
+		</div>		
 	</div>
 	<div id="ContentDiv">
 		<div id="page-content">
