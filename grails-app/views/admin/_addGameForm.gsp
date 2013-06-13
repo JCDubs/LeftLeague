@@ -34,8 +34,8 @@
 	</tr>
 	<tr>
 		<td colspan="3" class="centeredColumn">
-		<g:remoteLink action="addGame" controller="Game" update="newGameDiv"
-params="\'gameDate=\'+document.getElementById(\'gameDate\').value+\'&playerOne=\'+document.getElementById(\'playerOneName\').value+\'&playerTwoName=\'+document.getElementById(\'playerTwoName\').value+\'&playerOneWon=\'+document.getElementById(\'playerOneGameWon\').value+\'&playerTwoWon=\'+document.getElementById(\'playerTwoGameWon\').value">
+		<g:remoteLink action="addGame" controller="Game" update="newGameDiv" params="\'gameDay=\'+document.getElementById(\'gameDate_day\').value+\'&gameMonth=\'+document.getElementById(\'gameDate_month\').value+\'&gameYear=\'+document.getElementById(\'gameDate_year\').value+\'&playerOne=\'+document.getElementById(\'playerOneName\').value+\'&playerTwo=\'+document.getElementById(\'playerTwoName\').value+\'&playerOneWon=\'+document.getElementById(\'playerOneGameWon\').value+\'&playerTwoWon=\'+document.getElementById(\'playerTwoGameWon\').value">
+		
 
 				<g:img class="tableButton add" title="Add a new League Game." dir="images" file="add.png" />
 			</g:remoteLink></td>

@@ -9,12 +9,42 @@ class GameController {
 
 	    def addGame() {
 			
-		Date gameDate = new Date().parse("dd MM yy", params.gameDate)
+			if(!(params.gameDay || params.gameMonth || params.gameYear || params.playerOne || params.playerTwo || params.playerOneWon || params.playerTwoWon)){
+				request.error = "A problem occurred while attempting to save the game."
+				render(template:"/admin/addGameForm")
+			}
+					
+			
+		Date gameDate = getGameDate(params.gameDay.toInteger(), params.gameMonth.toInteger(), params.gameYear.toInteger()).getTime()
 		//SimpleDateFormat.parse(params.gameDate)
-		Player playerOne = Player.findByName(params.playerOneName)	
-		Player playerTwo = Player.findByName(params.playerTwoName)
-		int playerOneGamesWon = String.toInteger(params.playerOneWon)
-		int playerTwoGamesWon = String.toInteger(params.playerOneWon)
+		Player playerOne = Player.findByName(params.playerOne)	
+		Player playerTwo = Player.findByName(params.playerTwo)
+		int playerOneGamesWon = params.playerOneWon.toInteger()
+		int playerTwoGamesWon = params.playerTwoWon.toInteger()
+		
+		int totalGames = playerOneGamesWon + playerTwoGamesWon
+		
+		playerOne.gamesPlayed += totalGames
+		playerTwo.gamesPlayed += totalGames
+		playerOne.gamesLost += playerTwoGamesWon
+		playerTwo.gamesLost += playerOneGamesWon
+		playerOne.gameWon += playerOneGamesWon
+		playerTwo.gamesLost += playerTwoGamesWon
+		
+		if(!playerOne.save() || !playerTwo.save()){
+			request.error = "A problem occurred while attempting to save the game."
+			render(template:"/admin/addGameForm")
+		}
+		
+		def newGames = []
+		
+		playerOneGamesWon.each {
+			
+		}
+		
+		playerTwoGamesWon.each {
+			
+		}
 		
         def gameInstance = new Game(params)
         if (!gameInstance.save(flush: true)) {
@@ -26,14 +56,17 @@ class GameController {
         redirect(action: "show", id: gameInstance.id)
     }    
 		
-		private Date getGameDate(){
+		private def getGameDate(int dayValue, int monthValue, int yearValue){
 			
-			Calendar currentDate = Calendar.get
-			currentDate.set(Calendar.HOUR,0);
-			currentDate.set(Calendar.MINUTE,0);
-			currentDate.set(Calendar.SECOND,0);
-			currentDate.set(Calendar.MILLISECOND,0);
+			Calendar gameDate = Calendar.getInstance()
+			gameDate.set(Calendar.YEAR, yearValue)
+			gameDate.set(Calendar.MONTH, monthValue)
+			gameDate.set(Calendar.DATE, dayValue)
+			gameDate.set(Calendar.HOUR,0);
+			gameDate.set(Calendar.MINUTE,0);
+			gameDate.set(Calendar.SECOND,0);
+			gameDate.set(Calendar.MILLISECOND,0);
 			
-			
+			return gameDate		
 		}
 }
