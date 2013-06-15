@@ -722,6 +722,10 @@ th.desc a {
 	background-image: url(../images/skin/database_save.png);
 }
 
+.buttons .nav {
+	background-image: url(../images/skin/database_save.png);
+}
+
 a.skip {
 	position: absolute;
 	left: -9999px;
@@ -981,10 +985,12 @@ p {
 }
 
 #leagueTableDiv{
-	width:100%;
+	width:60%;
 	text-align:center;
 	padding-left: auto;
 	padding-right: auto;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 #leagueTable{

@@ -27,7 +27,8 @@ class PointsCalculatorService {
 				playersPoints += gamePoints * multiplier
 			}
 			
-			currentPlayer.setCurrentPoints(playersPoints)
+			currentPlayer.setCurrentPoints playersPoints
+            calculatePlayerGameStats currentPlayer
 			currentPlayer.save()
 		}		
     }
@@ -45,4 +46,14 @@ class PointsCalculatorService {
 			newArchive.save()
 		}
 	}
+
+    private calculatePlayerGameStats(Player player){
+
+        int numOfGamesWon = Game.findAllByWinner(player).size()
+        int numOfGamesLost = Game.findAllByLoser(player).size()
+
+        player.gamesWon = numOfGamesWon
+        player.gamesLost = numOfGamesLost
+        player.gamesPlayed = numOfGamesLost + numOfGamesWon
+    }
 }
