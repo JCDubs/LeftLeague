@@ -6,51 +6,13 @@
 		<g:set var="entityName" value="${message(code: 'player.label', default: 'Player')}" />
 		<g:javascript library="jquery" />
 <g:javascript library="jquery-ui" />
-  		<g:javascript>
-$(document).ready(function() {	
-        $("#playerOne").autocomplete({
-            source: function(request, response){
-                $.ajax({
-                    url:"${createLink(controller: 'player', action: 'autocompleteSearch')}",
-                    data: {
-                    term : request.term,
-                    selectedPlayer : $("#playerTwoName").val()
-                	},
-                    success: function(data){
-                        response(data);
-                    }
-                });
-            },
-            minLength: 2,
-            select: function(event, ui) {               
-                $("#playerOneName").val(ui.item.value);            
-            }
-        });
-        $("#playerTwo").autocomplete({
-            source: function(request, response){
-                $.ajax({
-                    url:"${createLink(controller: 'player', action: 'autocompleteSearch')}",
-                    data: {
-                    term : request.term,
-                    selectedPlayer : $("#playerOneName").val()
-                	},
-                    success: function(data){
-                        response(data);
-                    }
-                });
-            },
-            minLength: 2,
-            select: function(event, ui) {               
-                $("#playerTwoName").val(ui.item.value);               
-            }
-        });
-    }(jQuery));
-</g:javascript>
+  		
 		<title>League Admin</title>
 	</head>
 	<body>
-				
+    <g:link class="buttons nav" controller="Game" action="leagueRankings">League Rankings</g:link>
 		<div id="settingsDiv"  role="main">
+
 			<h1>League Admin</h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -64,10 +26,7 @@ $(document).ready(function() {
 			</g:hasErrors>
 			<g:form method="post" >
 				<fieldset class="form">
-				<div class="rowContainer">
-				<div id="newGameDiv">	
-				<g:render template="addGameForm"/>			
-				</div>
+				<div class="rowContainer">				
 				<div id="pointBaseDiv">
 				<g:render template="pointsBaseForm"/>
 				</div>
