@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title><g:layoutTitle default="NMi UK" /></title>
+<title>Left League</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}"
 	type="text/css">
@@ -39,9 +39,6 @@
 	</div>
 	<div id="spinner" class="spinner" style="display: none;">
 		<g:message code="spinner.alt" default="Loading&hellip;" />
-	</div>
-	<div class="excalibr-footer" role="contentinfo">
-		<h3>Copyright 2013, NMi Metrology & Gaming Limited</h3>
 	</div>
 	<g:javascript library="application" />
 	<r:layoutResources />
